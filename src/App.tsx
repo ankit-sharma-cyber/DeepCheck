@@ -137,7 +137,9 @@ function AppInner() {
 }
 
 function App() {
-  const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID || '1234567890-mock.apps.googleusercontent.com';
+  const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+  if (!clientId) throw new Error('VITE_GOOGLE_CLIENT_ID is not set in .env');
+  
   
   return (
     <GoogleOAuthProvider clientId={clientId}>
