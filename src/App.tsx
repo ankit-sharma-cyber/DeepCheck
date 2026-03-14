@@ -137,8 +137,8 @@ function AppInner() {
 }
 
 function App() {
-  const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
-  if (!clientId) throw new Error('VITE_GOOGLE_CLIENT_ID is not set in .env');
+  const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID ?? '';
+  if (!clientId) console.warn('VITE_GOOGLE_CLIENT_ID is not set — Google login will not work.');
   
   
   return (
